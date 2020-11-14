@@ -31,7 +31,7 @@ const NavBar = () => {
             <Nav.Link className="mr-3" href="/contact">
               Contact
             </Nav.Link>
-            <div className="green-btn text-center" href="/home">
+            <div className="green-btn" href="/login">
               Login
             </div>
           </Nav>
