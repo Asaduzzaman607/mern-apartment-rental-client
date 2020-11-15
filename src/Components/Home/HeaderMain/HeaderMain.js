@@ -13,7 +13,7 @@ const HeaderMain = () => {
             placeholder="Search..."
             name="search"
           />
-          <button className="green-btn">Find Now</button>
+          <button className="green-btn">Find Yes</button>
         </div>
       </div>
     </main>
