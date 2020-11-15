@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import logo from ".././../../images/logos/Logo.png";
-import "./NavBar.css";
+import "./_NavBar.scss";
 
 const NavBar = () => {
   return (
@@ -31,8 +31,8 @@ const NavBar = () => {
             <Nav.Link className="mr-3" href="/contact">
               Contact
             </Nav.Link>
-            <div className="green-btn" href="/login">
-              Login
+            <div href="/login">
+              <button className="green-btn">Login</button>
             </div>
           </Nav>
         </Navbar.Collapse>
