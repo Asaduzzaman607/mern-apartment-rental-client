@@ -1,0 +1,1 @@
+import pic from '../../images/apartments/Rectangle 13.png'

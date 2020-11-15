@@ -1,20 +1,11 @@
 *{
   margin: 0;
 }
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+$bannerTextColor:#FFFFFF;
+$searchBgColor: #F1F6F4;
 
+// functional scss
 @mixin greenBtn() {
     background: #275A53;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -25,12 +16,84 @@ code {
     color: white;
     border: none;
 }
+
+@mixin MontserratFont($textColor){
+  width: 100%;
+  height: 59px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 59px;
+  margin: 106px auto 51px auto;
+  color: $textColor;
+}
+
+@mixin navLinks(){
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.0015em;
+  color: #000000;
+  text-decoration: none;
+  margin-right: 30px;
+
+}
 // navar
-nav{
+header{
     button{
         @include greenBtn();
     }
+    img{
+      width: 100px;
+      height: 54.8px;
+    }
+    .nav-link{
+      @include navLinks();
+    }
    }
 
-   //header
-   
+//header
+%background-image-shared {
+  background-image:linear-gradient( rgba(0, 0, 0, 0.664), rgba(0, 0, 0, 0.664)), url('../../images/apartments/Rectangle 13.png');
+  background-repeat: no-repeat;
+  background-position: center;;
+  height: 444px;
+  background-size: cover;
+}
+
+//header-main section
+.banner-bg{
+  @extend %background-image-shared;
+  .header-main{
+    text-align: center;
+    justify-content: center;
+  }
+   .header-text{
+     @include MontserratFont($bannerTextColor);
+  
+  }
+  .search-bar{
+    width: 536px;
+    height: 50px;
+    background: $searchBgColor;
+    border-radius: 5px;
+    margin-right: 18px;
+  }
+  .search-holder{
+      display: flex;
+      justify-content: center;
+  }
+  button{
+    @include greenBtn();
+    width: 163px;
+    height: 50px;
+  }
+  
+}
+
+
+
+

@@ -1,42 +1,69 @@
 import React from "react";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import logo from ".././../../images/logos/Logo.png";
 
 const NavBar = () => {
   return (
-    <nav className="pt-4 container nav-text">
-      <Navbar bg="transparent" expand="lg">
-        <Navbar.Brand href="/home">
-          <img className="nav-logo img-fluid" src={logo} alt="" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link className="mr-3" href="/home">
-              Home
-            </Nav.Link>
-            <Nav.Link className="mr-3" href="/about">
-              About
-            </Nav.Link>
-            <Nav.Link className="mr-3" href="/service">
-              Service
-            </Nav.Link>
-            <Nav.Link className="mr-3" href="/concerns">
-              Concerns
-            </Nav.Link>
-            <Nav.Link className="mr-3" href="/event">
-              Event
-            </Nav.Link>
-            <Nav.Link className="mr-3" href="/contact">
-              Contact
-            </Nav.Link>
-            <div href="/login">
-              <button className="green-btn">Login</button>
-            </div>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </nav>
+    <header className="header">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-12">
+            <nav className="navbar navbar-expand-lg">
+              <Link className="navbar-brand ml-5" href="#">
+                <img src={logo} alt="" className="img-fluid" />
+              </Link>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item active">
+                    <Link className="nav-link" href="#">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" href="#">
+                      About
+                    </Link>
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" href="#">
+                      Services
+                    </Link>
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" href="#">
+                      Event
+                    </Link>
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" href="#">
+                      Contact
+                    </Link>
+                  </li>
+                  <li className="nav-item active mr-5 pr-5">
+                    <button className="green-btn ">Login</button>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 
