@@ -4,10 +4,11 @@
 
 $bannerTextColor:#FFFFFF;
 $searchBgColor: #F1F6F4;
+$greenBgColor: #275A53;
 
-// functional scss
+// functional scss section header
 @mixin greenBtn() {
-    background: #275A53;
+    background: $greenBgColor;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     height: 44px;
@@ -41,6 +42,92 @@ $searchBgColor: #F1F6F4;
   margin-right: 30px;
 
 }
+
+
+//login and signup container section for scss 
+
+%border-for-fb-google{
+  width: 461px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    box-sizing: border-box;
+    border-radius: 57px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+$bgFbLogo: url('../../images/logos/fb.png');
+$bgGoogleLogo:url('../../images/logos/google.png');
+
+@mixin continueWith($bLogo){
+  background-image: $bLogo;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 37px;
+    background-position-x: 8px;
+}
+
+@mixin continueWithText(){
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  padding-top: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+%login-form{
+  width: 570px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ABABAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+%login-submit-btn{
+  height: 50px;
+    width: 460px;
+    width: 462px;
+    top: 609px;
+    margin-top: 25px;
+    background:$greenBgColor;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+%login-page-title{
+  font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin-top: 36px;
+    margin-bottom: 0;
+}
+%para-font-details{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+}
 // navar
 header{
     button{
@@ -55,18 +142,23 @@ header{
     }
    }
 
-//header
-%background-image-shared {
+//header-main
+$homeBannerHeight : 444px;
+$detailsBannerHeight: 269px;
+@mixin background-image-shared($height) {
   background-image:linear-gradient( rgba(0, 0, 0, 0.664), rgba(0, 0, 0, 0.664)), url('../../images/apartments/Rectangle 13.png');
   background-repeat: no-repeat;
   background-position: center;;
-  height: 444px;
+  height:$height;
   background-size: cover;
 }
 
 //header-main section
+.banner-bg2{
+  @include background-image-shared($detailsBannerHeight)
+}
 .banner-bg{
-  @extend %background-image-shared;
+  @include background-image-shared($homeBannerHeight);
   .header-main{
     text-align: center;
     justify-content: center;
@@ -92,6 +184,83 @@ header{
     height: 50px;
   }
   
+}
+
+// login section 
+
+.login-container{
+  .login-form {
+    @extend %login-form;
+}
+
+.login-form input {
+    width: 460px;
+}
+
+.forget-password {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: $greenBgColor;
+    cursor: pointer;
+}
+
+& label {
+  @extend %para-font-details;
+}
+
+.login-submit-btn {
+   @extend %login-submit-btn;
+}
+
+.login-submit-btn:focus {
+    outline: none;
+}
+
+.login-page-title {
+    @extend %login-page-title;
+}
+
+.login-page-inner {
+    margin: 0 55px;
+}
+
+.about-account {
+    @extend %para-font-details;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+.continue-with-facebook, .continue-with-google {
+    @extend %border-for-fb-google
+}
+
+.continue-with-facebook {
+   @include continueWith($bgFbLogo);
+}
+
+.continue-with-google {
+    @include continueWith($bgGoogleLogo);
+}
+
+.continue-with-facebook p, .continue-with-google p {
+    @include continueWithText()
+}
+
+.or {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.or p {
+    @extend %para-font-details;
+}
+
 }
 
 
