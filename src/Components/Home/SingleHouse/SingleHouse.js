@@ -29,7 +29,7 @@ const SingleHouse = (props) => {
                 </CardActionArea>
                 <Box className="footer" display="flex" justifyContent="space-between">
                     <span className="price">$194</span>
-                    <Link to="/home" className="details">View Details</Link>
+                    <Link to="/booking" className="details">View Details</Link>
                 </Box>
             </Card>
         </Grid>
