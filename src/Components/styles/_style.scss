@@ -5,6 +5,8 @@
 $bannerTextColor:#FFFFFF;
 $searchBgColor: #F1F6F4;
 $greenBgColor: #275A53;
+$bgFbLogo: url('../../images/logos/fb.png');
+$bgGoogleLogo:url('../../images/logos/google.png');
 
 // functional scss section header
 @mixin greenBtn() {
@@ -60,9 +62,6 @@ $greenBgColor: #275A53;
     margin-top: 10px;
     cursor: pointer;
 }
-
-$bgFbLogo: url('../../images/logos/fb.png');
-$bgGoogleLogo:url('../../images/logos/google.png');
 
 @mixin continueWith($bLogo){
   background-image: $bLogo;
