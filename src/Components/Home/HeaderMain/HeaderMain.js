@@ -1,36 +1,21 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import "./HeaderMain.css";
 
 const HeaderMain = () => {
-  const location = useLocation();
   return (
-    <main className="header-container">
-      {location.pathname === "/" || location.pathname === "/home" ? (
-        <>
-          <div className="banner-bg row">
-            <div className="header-main col-md-12 ">
-              <h2 className="header-text">FIND YOUR HOUSE RENT</h2>
-              <div className="search-holder">
-                <input
-                  className="search-bar"
-                  type="text"
-                  placeholder="Search..."
-                  name="search"
-                />
-                <button className="green-btn">Find Now</button>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="banner-bg2 row">
-            <div className="header-main col-md-12 ">
-              <h2 className="header-text">Apartment</h2>
-            </div>
-          </div>
-        </>
-      )}
+    <main className="header-bg">
+      <div className="header-main">
+        <h2 className="header-text">FIND YOUR HOUSE RENT</h2>
+        <div className="search-holder">
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Search..."
+            name="search"
+          />
+          <button className="green-btn">Find Now</button>
+        </div>
+      </div>
     </main>
   );
 };
