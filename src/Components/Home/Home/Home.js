@@ -1,4 +1,5 @@
 import React from "react";
+import PostsPage from "../../Posts/PostsPage";
 import NavBar from "../../Shared/NavBar/NavBar";
 import HeaderMain from "../HeaderMain/HeaderMain";
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <NavBar></NavBar>
       <HeaderMain></HeaderMain>
+      <PostsPage></PostsPage>
     </div>
   );
 };

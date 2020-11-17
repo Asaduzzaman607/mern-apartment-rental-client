@@ -11,19 +11,21 @@ function App() {
   return (
     <div className="app">
       <UserContext.Provider value={[user, setUser]}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route path="/home">
-              <Home></Home>
-            </Route>
-            <Route path="/login">
-              <Login></Login>
-            </Route>
-          </Switch>
-        </Router>
+  
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route path="/home">
+                <Home></Home>
+              </Route>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+            </Switch>
+          </Router>
+       
       </UserContext.Provider>
     </div>
   );
