@@ -1,65 +1,108 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const AddRentHouse = () => {
+  const { register, handleSubmit } = useForm();
 
-    const [file, setFile] = useState(null);
-    const [info, setInfo] = useState({});
+  // needed states
+  const [file, setFile] = useState(null);
 
-    const onBlur = (e) => {
-        const newInfo = { ...info };
-        newInfo[e.target.name] = e.target.value;
-        setInfo(newInfo)
-    }
+  // to handle to file
+  const handleFileInput = (e) => {
+    const file = e.target.files[0];
+    setFile(file);
+  };
 
-    const handleFileChange = (e) => {
-        const newFile = e.target.files[0];
-        setFile(newFile);
-    }
+  // to submit data from the input form
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("title", data.title);
+    formData.append("price", data.price);
+    formData.append("location", data.location);
+    formData.append("bedroom", data.bedroom);
+    formData.append("bathroom", data.bathroom);
+    console.log(formData);
 
-    console.log(info);
+    fetch("http://localhost:8080/addService", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          alert("Order placed Successfully");
+        }
+      });
+  };
 
-    const handleSubmit = () => {
-        const formData = new FormData()
-        formData.append('file', file);
-        formData.append('title', info.title);
-        formData.append('price', info.price);
-        formData.append('location', info.location);
-        formData.append('bedroom', info.bedroom);
-        formData.append('bathroom', info.bathroom);
-        console.log(formData);
-
-        fetch('http://localhost:8080/addService', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
-
-    return (
-        <div>
-            <div className="">
-                <form onSubmit={handleSubmit}>
-                    <div id="formBox">
-                        <div className="inputBoxes">
-                            <input className='input' type="text" name="title" placeholder="Title" onBlur={onBlur} />
-                            <input className='input' type="text" name="price" placeholder="Price" onBlur={onBlur} /> <br />
-                            <input className='input' type="text" name="location" placeholder="Location" onBlur={onBlur} />
-                            <input className='input' type="text" name="bedroom" placeholder="No of bedroom" onBlur={onBlur} /> <br />
-                            <input className='input' type="text" name="bathroom" placeholder="No of bathroom" onBlur={onBlur} />
-                            <input className='input' type="file" name="image" onChange={handleFileChange} />
-                        </div>
-                    </div>
-                    <input className='allButtons submitBtn' type="submit" value="Submit" />
-                </form>
+  return (
+    <div>
+      <div className="">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div id="formBox">
+            <div className="inputBoxes">
+              <input
+                required
+                ref={register}
+                className="input"
+                type="text"
+                name="title"
+                placeholder="Title"
+              />
+              <input
+                required
+                ref={register}
+                className="input"
+                type="text"
+                name="price"
+                placeholder="Price"
+              />{" "}
+              <br />
+              <input
+                required
+                ref={register}
+                className="input"
+                type="text"
+                name="location"
+                placeholder="Location"
+              />
+              <input
+                required
+                ref={register}
+                className="input"
+                type="text"
+                name="bedroom"
+                placeholder="No of bedroom"
+              />{" "}
+              <br />
+              <input
+                required
+                ref={register}
+                className="input"
+                type="text"
+                name="bathroom"
+                placeholder="No of bathroom"
+              />
+              <input
+                required
+                ref={register}
+                className="input"
+                type="file"
+                name="image"
+                onChange={handleFileInput}
+              />
             </div>
-        </div>
-    );
+          </div>
+          <input
+            className="allButtons submitBtn"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default AddRentHouse;
