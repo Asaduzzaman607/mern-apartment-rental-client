@@ -9,6 +9,7 @@
 * **CRUD operation by express**
 * **Firebase authentication**
 * **Globally data stored by redux**
+* **Data stored in mongoDB**
 * **Client side deployed on Firebase**
 * **Server side deployed on Heroku**
 
