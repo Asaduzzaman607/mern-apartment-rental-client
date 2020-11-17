@@ -1,9 +1,10 @@
 import React from "react";
+import "./HeaderMain.css";
 
 const HeaderMain = () => {
   return (
-    <main className="banner-bg row">
-      <div className="header-main col-md-12 ">
+    <main className="header-bg">
+      <div className="header-main">
         <h2 className="header-text">FIND YOUR HOUSE RENT</h2>
         <div className="search-holder">
           <input

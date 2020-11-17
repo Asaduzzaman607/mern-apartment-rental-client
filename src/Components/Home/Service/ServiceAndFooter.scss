@@ -1,0 +1,44 @@
+$font-family: arial,sans-serif;
+$Color: #16322E;
+$font-weight: 700;
+$font-size: 18px;
+#serviceHeading{
+    font-weight: $font-weight;
+}
+.subHeading{
+    font-weight: $font-weight;
+}
+.serviceBox img{
+    height: 80px;
+    width: 80px;
+}
+.serviceBox p {
+    font-size: $font-size;
+}
+
+#service{
+    font-family: $font-family;
+    color: $Color;
+}
+#footer{
+    background-color: $Color;
+    font-family: $font-family;
+    color: rgb(228, 228, 228);
+    font-size: $font-size;
+    list-style: none;
+}
+#footer img {
+    width: 25px;
+    margin: 10px;
+}
+#footer li {
+    list-style: none;
+    margin-top: 8px;
+}
+#footer h4 {
+    font-weight: $font-weight;
+}
+#location {
+    height:40px;
+    color: white;
+}
