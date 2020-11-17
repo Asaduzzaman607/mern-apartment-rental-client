@@ -15,6 +15,7 @@ const AddRentHouse = () => {
 
   // to submit data from the input form
   const onSubmit = (data) => {
+    console.log(data);
     const formData = new FormData();
     formData.append("file", file);
     formData.append("title", data.title);
@@ -23,6 +24,10 @@ const AddRentHouse = () => {
     formData.append("bedroom", data.bedroom);
     formData.append("bathroom", data.bathroom);
     console.log(formData);
+    // const jsonData = JSON.stringify(data);
+    // const formData = new FormData();
+    // formData.append("image", data.image[0]);
+    // formData.append("data", jsonData);
 
     fetch("http://localhost:8080/addService", {
       method: "POST",
