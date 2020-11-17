@@ -1,11 +1,11 @@
 # Apartment Hunt
 ### A mern stack apartment rent booking web application with admin panel
 
-#### `View`
+### `View`
 
 [Live Website](https://www.google.com "Apartment Hunt") | [Clint side repository](https://github.com/Asaduzzaman607/mern-apartment-rental-client) | [Server side repository](https://github.com/WebKawsar/apartment-hunt-server)
 
-#### `Functionality`
+### `Functionality`
 * **CRUD operation by express**
 * **Firebase authentication**
 * **Globally data stored by redux**
@@ -13,7 +13,7 @@
 * **Server side deployed on Heroku**
 
 
-#### `Features`
+### `Features`
 * A user can choose any one of the many apartments.
 * The user can view details about the apartment.
 * The user can book the apartment.
@@ -23,7 +23,7 @@
 * An admin can review all bookings.
 * The admin can add a new apartment on the application with details.
 
-#### `Used Technologies`
+### `Used Technologies`
 
 * JavaScript
 * ES6
