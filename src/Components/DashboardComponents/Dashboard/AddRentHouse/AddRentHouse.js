@@ -2,42 +2,29 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const AddRentHouse = () => {
-  const { register, handleSubmit } = useForm();
 
-  // needed states
-  const [file, setFile] = useState(null);
-
-  // to handle to file
-  const handleFileInput = (e) => {
-    const file = e.target.files[0];
-    setFile(file);
-  };
-
-  // to submit data from the input form
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("title", data.title);
-    formData.append("price", data.price);
-    formData.append("location", data.location);
-    formData.append("bedroom", data.bedroom);
-    formData.append("bathroom", data.bathroom);
-    console.log(formData);
-    // const jsonData = JSON.stringify(data);
-    // const formData = new FormData();
-    // formData.append("image", data.image[0]);
-    // formData.append("data", jsonData);
 
-    fetch("http://localhost:8080/addService", {
+    const jsonData = JSON.stringify(data);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+    formData.append("data", jsonData);
+
+    console.log(data);
+
+    fetch("https://apartment-hunt-simple.herokuapp.com/addService", {
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result) {
-          alert("Order placed Successfully");
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          alert("Added your service");
         }
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
@@ -48,16 +35,18 @@ const AddRentHouse = () => {
           <div id="formBox">
             <div className="inputBoxes">
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="text"
                 name="title"
                 placeholder="Title"
               />
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="text"
                 name="price"
@@ -65,16 +54,18 @@ const AddRentHouse = () => {
               />{" "}
               <br />
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="text"
                 name="location"
                 placeholder="Location"
               />
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="text"
                 name="bedroom"
@@ -82,20 +73,21 @@ const AddRentHouse = () => {
               />{" "}
               <br />
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="text"
                 name="bathroom"
                 placeholder="No of bathroom"
               />
               <input
-                required
-                ref={register}
+                ref={register({
+                  required: "Name is required",
+                })}
                 className="input"
                 type="file"
                 name="image"
-                onChange={handleFileInput}
               />
             </div>
           </div>

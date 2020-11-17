@@ -14,7 +14,7 @@ export function fetchallPosts() {
     dispatch(getPosts());
 
     try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const res = await fetch("https://apartment-hunt-simple.herokuapp.com/getAllServices");
       const data = await res.json();
 
       dispatch(getPostsSuccess(data));

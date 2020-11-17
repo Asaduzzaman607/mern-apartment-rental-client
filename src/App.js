@@ -4,13 +4,15 @@ import Dashboard from "./Components/DashboardComponents/Dashboard/Dashboard";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login";
 import { createContext, useState } from "react";
+import BookHouse from "./Components/BookHouse/BookHouse/BookHouse";
+import PrivateRoute from "./Components/Home/PrivateRoute/PrivateRoute";
 
 export const UserContext = createContext();
 
 function App() {
   const [user, setUser] = useState({});
   return (
-    <div className="app">
+    <div className="app root">
       <UserContext.Provider value={[user, setUser]}>
         <Router>
           <Switch>
@@ -20,9 +22,12 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/dashboard">
-              <Dashboard></Dashboard>
+            <Route path="/booking/:id">
+              <BookHouse></BookHouse>
             </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>

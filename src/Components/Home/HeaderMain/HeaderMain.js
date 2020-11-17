@@ -26,7 +26,7 @@ const HeaderMain = () => {
         <>
           <div className="banner-bg2 row">
             <div className="header-main col-md-12 ">
-              <h2 className="header-text">Apartment</h2>
+              <h2 className="header-text text-center">Apartment</h2>
             </div>
           </div>
         </>

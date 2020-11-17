@@ -5,7 +5,8 @@ export const Post = ({ post }) => {
   return (
     <div>
       <h2>{post.title}</h2>
-      <p>{post.body}</p>
+      <p>{post.location}</p>
+      <img src={`data:image/png;base64,${post.image.img}`} style={{ width: "192px", height: "210px" }} alt="" />
     </div>
   );
 };

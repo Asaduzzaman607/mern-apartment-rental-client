@@ -155,6 +155,11 @@ $detailsBannerHeight: 269px;
 //header-main section
 .banner-bg2{
   @include background-image-shared($detailsBannerHeight)
+  .header-text{
+    @include MontserratFont($bannerTextColor);
+ 
+ }
+  
 }
 .banner-bg{
   @include background-image-shared($homeBannerHeight);
